@@ -1,0 +1,146 @@
+openapi: 3.0.1
+info:
+  title: API de consultório
+  description: API para controlar médicos e suas especialidades dentro do consultório.
+  version: 0.0.1
+  termsOfService: https://mockapi.io
+  contact:
+    name: Suporte a Devs
+    email: contato@example.com
+    url: https://mockapi.io
+  license:
+    name: "Lincença: GPLv3"
+    url: https://www.gnu.org/licenses/gpl-3.0.html
+externalDocs:
+  description: Documentação burocrática
+  url: https://mockapi.io
+servers:
+- url: https://618d83a4fe09aa00174407c4.mockapi.io/api/v1
+  description: Api de Teste
+- url: https://618d83a4fe09aa00174407c4.mockapi.io/api/v1
+  description: Api de Produção
+security: 
+  - auth: []
+paths:
+  /especialidades:
+    get:
+      summary: Recupera todas as especialidades
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Especialidade'
+    post:
+      summary: Cria uma nova especialidade
+      requestBody:
+        $ref: '#/components/requestBodies/Especialidade'
+      responses:
+        201:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Especialidade'
+  /especialidades/{id}:
+    parameters: 
+      - name: id
+        in: path
+        schema:
+          type: integer
+        required: true
+    get:
+      summary: Recupera uma especialidade pelo ID
+      responses:
+        200:
+          description: Sucesso
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Especialidade'
+        404:
+          description: Especialidade não encontrada
+          content: 
+            application/json:
+              example: "Not Found"
+    put:
+      summary: Atualiza uma especialidade pelo seu ID
+      requestBody:
+        $ref: '#/components/requestBodies/Especialidade'
+      responses:
+        200:
+          description: "Atualizado com sucesso"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Especialidade'
+        404:
+          description: "Especialidade não encontrada"
+          content:
+            application/json:
+              example: "Not Found"
+    delete:
+      summary: Deletar uma especialidade pelo seu ID
+      responses:
+        200:
+          description: Deletado com sucesso
+          content: 
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/Especialidade'
+        404:
+          description: Especialidade não encontrada
+          content: 
+            application/json:
+              example: "Not Found"
+components:
+  requestBodies:
+    Especialidade:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              descricao:
+                type: string
+  schemas:
+    Especialidade:
+      type: object
+      properties:
+        id: 
+          type: integer
+        descricao:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+  securitySchemes:
+    auth:
+      type: http
+      scheme: bearer
+
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        
+      
+      
+      
+      
+      
+      
+      
+                      
+                      

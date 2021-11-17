@@ -1,0 +1,16 @@
+version: "3.5"
+
+networks: 
+  app-network:
+    driver: bridge
+
+services:
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: "swagger-ui"
+    ports:
+      - "8082:8080"
+    volumes:
+      - ./projeto.json:/projeto.json
+    environment:
+      SWAGGER_JSON: /projeto.json
