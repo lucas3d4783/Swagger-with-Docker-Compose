@@ -24,6 +24,8 @@ security:
 paths:
   /especialidades:
     get:
+      tags:
+        - Especialidades
       summary: Recupera todas as especialidades
       responses:
         200:
@@ -35,6 +37,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/Especialidade'
     post:
+      tags:
+        - Especialidades
       summary: Cria uma nova especialidade
       requestBody:
         $ref: '#/components/requestBodies/Especialidade'
@@ -53,6 +57,8 @@ paths:
           type: integer
         required: true
     get:
+      tags:
+        - Especialidades
       summary: Recupera uma especialidade pelo ID
       responses:
         200:
@@ -67,6 +73,8 @@ paths:
             application/json:
               example: "Not Found"
     put:
+      tags:
+        - Especialidades
       summary: Atualiza uma especialidade pelo seu ID
       requestBody:
         $ref: '#/components/requestBodies/Especialidade'
@@ -83,6 +91,8 @@ paths:
             application/json:
               example: "Not Found"
     delete:
+      tags:
+        - Especialidades
       summary: Deletar uma especialidade pelo seu ID
       responses:
         200:
@@ -121,26 +131,3 @@ components:
     auth:
       type: http
       scheme: bearer
-
-                      
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-        
-      
-      
-      
-      
-      
-      
-      
-                      
-                      
